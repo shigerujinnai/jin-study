@@ -17,6 +17,7 @@ public class RegistAccountApi {
         if (userInfo.validation()) {
             System.out.println("不正パラメータです");
         }
-        RegistAccountProcess.getInstance().registAccount(userInfo.toDomain());
+        RegistAccountProcess process = new RegistAccountProcess(null, null);
+        process.registAccount(userInfo.toDomain());
     }
 }

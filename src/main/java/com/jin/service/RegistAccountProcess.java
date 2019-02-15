@@ -1,32 +1,19 @@
 package com.jin.service;
 
-import com.jin.domain.account.AccountManager;
-import com.jin.domain.credit.CreditCardManager;
+import com.jin.domain.account.UserInfoRepository;
+import com.jin.domain.credit.CreditCardRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class RegistAccountProcess {
 
-    private static RegistAccountProcess instance;
+    private final UserInfoRepository userInfoRepository;
 
-    private AccountManager accountManager;
-
-    private CreditCardManager creditCardManager;
-
-
-    private RegistAccountProcess() {
-        accountManager = new AccountManager();
-        creditCardManager = new CreditCardManager();
-    }
-
-    public static RegistAccountProcess getInstance() {
-        if (instance == null) {
-            instance = new RegistAccountProcess();
-        }
-        return instance;
-    }
+    private final CreditCardRepository creditCardRepository;
 
     public void registAccount(RegistUserInfo userInfo) {
 
-        if (accountManager.referUserInfo(userInfo.toUserInfo())) {
+        if (userInfoRepository.refer(userInfo.toUserInfo())) {
             System.out.println("登録済みメンバーのためNG");
             return;
         }
@@ -36,7 +23,7 @@ public class RegistAccountProcess {
         }
 
         // if 既に登録されているcreditカードか？
-        if (creditCardManager.referUserInfo(userInfo.toCreditCardInfo())) {
+        if (creditCardRepository.refer(userInfo.toCreditCardInfo())) {
             System.out.println("登録されているcreditカードのためNG");
         }
         //  // creditカード審査NGのため
