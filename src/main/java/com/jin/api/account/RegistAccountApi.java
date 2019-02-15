@@ -1,6 +1,7 @@
 package com.jin.api.account;
 
 
+import com.jin.service.RegistAccountProcess;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,10 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegistAccountApi {
 
     @RequestMapping(value = "/account/regist", method = RequestMethod.POST)
-    public void registAccount() {
-        // サービスを呼び出す
-        // 引数で渡された申込ユーザ情報をサービスへ渡す
+    public void registAccount(RegistUserInfoForm userInfo) {
+
+        if (userInfo.validation()) {
+            System.out.println("不正パラメータです");
+        }
+        RegistAccountProcess.getInstance().registAccount(userInfo.toDomain());
     }
-
-
 }
