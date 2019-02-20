@@ -1,11 +1,11 @@
-package com.jin.domain.account.vo;
+package com.jin.domain.sequential;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class UserNameKana {
+public class UserId {
 
     private final String value;
 }

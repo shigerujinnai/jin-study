@@ -1,6 +1,4 @@
-package com.jin.domain.account;
-
-import com.jin.domain.account.vo.UserId;
+package com.jin.domain.sequential;
 
 public interface SequentialUserIdRepository {
 

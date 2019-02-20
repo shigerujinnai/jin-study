@@ -1,11 +1,13 @@
 package com.jin.api.account;
 
-import com.jin.service.RegistUserInfo;
+import com.jin.service.UserInfoToJoin;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @RequiredArgsConstructor
 @Getter
+@Setter
 public class RegistUserInfoForm {
 
     private final String name;
@@ -36,7 +38,7 @@ public class RegistUserInfoForm {
         return true;
     }
 
-    public RegistUserInfo toDomain() {
+    public UserInfoToJoin toDomain() {
         // ドメイン情報を生成する
         return null;
     }

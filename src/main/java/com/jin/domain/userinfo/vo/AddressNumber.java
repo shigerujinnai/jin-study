@@ -1,11 +1,11 @@
-package com.jin.domain.account.vo;
+package com.jin.domain.userinfo.vo;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class UserName {
-
+public class AddressNumber {
     private final String value;
+
 }

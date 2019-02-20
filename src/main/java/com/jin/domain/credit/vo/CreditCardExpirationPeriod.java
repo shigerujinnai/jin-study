@@ -1,6 +1,6 @@
 package com.jin.domain.credit.vo;
 
-import com.jin.domain.account.vo.DateNow;
+import com.jin.domain.userinfo.vo.DateNow;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -14,7 +14,7 @@ public class CreditCardExpirationPeriod {
 
     private final DateNow now;
 
-    public boolean past(DateNow now) {
+    public boolean past() {
         return value.isBefore(now.getValue());
     }
 }

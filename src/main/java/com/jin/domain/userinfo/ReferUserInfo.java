@@ -1,7 +1,7 @@
-package com.jin.domain.account;
+package com.jin.domain.userinfo;
 
-import com.jin.domain.account.vo.BirthDay;
-import com.jin.domain.account.vo.UserName;
+import com.jin.domain.userinfo.vo.BirthDay;
+import com.jin.domain.userinfo.vo.UserName;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

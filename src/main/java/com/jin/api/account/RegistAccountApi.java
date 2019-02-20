@@ -1,6 +1,8 @@
 package com.jin.api.account;
 
 
+import com.jin.infra.account.UserInfoRepositoryImpl;
+import com.jin.infra.credit.CreditCardRepositoryImpl;
 import com.jin.service.RegistAccountProcess;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,8 @@ public class RegistAccountApi {
         if (userInfo.validation()) {
             System.out.println("不正パラメータです");
         }
-        RegistAccountProcess process = new RegistAccountProcess(null, null);
+        RegistAccountProcess process = new RegistAccountProcess(
+                new UserInfoRepositoryImpl(), new CreditCardRepositoryImpl());
         process.registAccount(userInfo.toDomain());
     }
 }
